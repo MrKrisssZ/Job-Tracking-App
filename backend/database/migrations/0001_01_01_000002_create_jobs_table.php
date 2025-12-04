@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('position');
             $table->text('url');
             $table->enum('status', ['Applied', 'Not Applied', 'Interview', 'Offer', 'Rejected']);
-            $table->dateTime('applied_at')->nullable();
+            $table->dateTime('applied_at');
             $table->dateTime('last_update')->nullable();
-            $table->text('notes');
+            $table->text('notes')->nullable();
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
         });

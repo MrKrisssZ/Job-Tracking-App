@@ -24,7 +24,7 @@ class JobController extends Controller
             'position'     => 'required|string|max:255',
             'url'          => 'required|url',
             'status'       => 'required|in:Applied,Not Applied,Interview,Offer,Rejected',
-            'applied_at'   => 'nullable|date',
+            'applied_at'   => 'required|date',
             'last_update'  => 'nullable|date',
             'notes'        => 'nullable|string',
         ]);
