@@ -9,3 +9,10 @@ export const createJob = (jobData) => API.post("/api/jobs", jobData);
 
 // Example: GET all jobs
 export const getJobs = () => API.get("/api/jobs");
+
+export const getJobById = (id) => API.get(`/api/jobs/${id}`);
+
+export const deleteJob = (id) => API.delete(`/api/jobs/${id}`);
+
+export const updateJob = (id, jobData) => API.put(`/api/jobs/${id}`, jobData);
+
