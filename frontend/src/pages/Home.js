@@ -27,7 +27,10 @@ function Home() {
     navigate(`/jobs/update/${id}`);
   };
 
-
+  const handleViewDetails = (id) => {
+    navigate(`/jobs/details/${id}`);
+  }
+  
   return (
     <div style={{ padding: 20 }}>
       <h2>All Jobs</h2>
@@ -44,6 +47,7 @@ function Home() {
             {job.company} — {job.status}
             <button onClick={() => handleDelete(job.id)}>Delete</button>
             <button onClick={() => handleUpdate(job.id)}>Update</button>
+            <button onClick={() => handleViewDetails(job.id)}>View Details</button>
           </li>
         ))}
       </ul>

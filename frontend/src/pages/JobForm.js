@@ -1,8 +1,8 @@
-import { useState, useEffect, use } from "react";
+import { useState, useEffect} from "react";
 import { createJob, getJobById, updateJob } from "../api/jobApi";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-function CreateJob() {
+function JobForm() {
     const { id } = useParams();
     const [company, setCompany] = useState("");
     const [position, setPosition] = useState("");
@@ -28,7 +28,6 @@ function CreateJob() {
                 setNotes(job.notes);
             })
             .catch((err) => console.error(err));
-            console.log(company);
         }
     }, [id]);
 
@@ -72,7 +71,7 @@ function CreateJob() {
     return (
         <div style={{ padding: 20 }}>
 
-            <h2>Create a New Job</h2>
+            <h2>{id ? "Update your job" : "Create a new job"}</h2>
 
             <form onSubmit={handleSubmit}>
             <div>
@@ -149,11 +148,9 @@ function CreateJob() {
             
             {message && <p>{message}</p>}
 
-            <Link to="/">
-                <button>Return</button>
-            </Link>
+            <button onClick={() => window.history.back()}>Back</button>
         </div>
     );
 }
 
-export default CreateJob;
+export default JobForm;
