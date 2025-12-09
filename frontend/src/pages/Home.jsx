@@ -30,6 +30,11 @@ function Home() {
   const handleViewDetails = (id) => {
     navigate(`/jobs/details/${id}`);
   }
+
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // remove JWT
+    navigate("/login");               // redirect to login page
+  }
   
   return (
     <div className="max-w-4xl mx-auto py-10 px-4">
@@ -41,6 +46,14 @@ function Home() {
             Record a New Job
           </button>
         </Link>
+
+        {/* Logout Button */}
+        <button
+          onClick={handleLogout}
+          className="bg-gray-600 text-white px-4 py-2 rounded-lg shadow hover:bg-gray-700 transition"
+        >
+          Logout
+        </button>
       </div>
 
       {jobs.length === 0 && <p className="text-gray-500 text-center mt-10">No jobs found.</p>}
