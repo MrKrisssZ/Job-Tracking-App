@@ -32,25 +32,51 @@ function Home() {
   }
   
   return (
-    <div style={{ padding: 20 }}>
-      <h2>All Jobs</h2>
+    <div className="max-w-4xl mx-auto py-10 px-4">
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-3xl font-bold text-gray-800">All Jobs</h1>
 
-      <Link to="/create-job">
-        <button>Create New Job</button>
-      </Link>
+        <Link to="/create-job">
+          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">
+            Record a New Job
+          </button>
+        </Link>
+      </div>
 
-      {jobs.length === 0 && <p>No jobs found.</p>}
-
-      <ul>
+      {jobs.length === 0 && <p className="text-gray-500 text-center mt-10">No jobs found.</p>}
+      
+      <div className="space-y-4">
         {jobs.map(job => (
-          <li key={job.id}>
-            {job.company} — {job.status}
-            <button onClick={() => handleDelete(job.id)}>Delete</button>
-            <button onClick={() => handleUpdate(job.id)}>Update</button>
-            <button onClick={() => handleViewDetails(job.id)}>View Details</button>
-          </li>
+          <div key={job.id} className="p-5 bg-white rounded-xl shadow flex justify-between items-center">
+            
+            <div>
+              <h2 className="text-lg font-semibold text-gray-800">{job.company}</h2>
+              <p className="text-sm text-gray-500">Status: {job.status}</p>
+            </div>
+
+            <div className="flex gap-2">
+              <button 
+                onClick={() => handleDelete(job.id)} 
+                className="px-3 py-1 rounded bg-red-500 text-white hover:bg-red-600 transition"
+              >
+                Delete
+              </button>
+              <button 
+                onClick={() => handleUpdate(job.id)}
+                className="px-3 py-1 rounded bg-yellow-400 hover:bg-yellow-500 transition"
+              >
+                Update
+              </button>
+              <button 
+                onClick={() => handleViewDetails(job.id)}
+                className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
