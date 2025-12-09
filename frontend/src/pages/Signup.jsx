@@ -21,7 +21,7 @@ function Signup() {
         registerUser(form)
             .then((res) => {
                 localStorage.setItem("token", res.data.token);
-                navigate("/jobs"); // redirect to job list
+                navigate("/"); // redirect to job list
             })
             .catch((err) => alert("Signup failed"));
     };

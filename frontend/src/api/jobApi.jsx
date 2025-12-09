@@ -1,18 +1,14 @@
-import axios from "axios";
-
-const API = axios.create({
-  baseURL: "http://jobtracking.test", // change to your backend URL
-});
+import JWT_API from "./jwtInstance";
 
 // Example: POST a new job
-export const createJob = (jobData) => API.post("/api/jobs", jobData);
+export const createJob = (jobData) => JWT_API.post("/api/jobs", jobData);
 
 // Example: GET all jobs
-export const getJobs = () => API.get("/api/jobs");
+export const getJobs = () => JWT_API.get("/api/jobs");
 
-export const getJobById = (id) => API.get(`/api/jobs/${id}`);
+export const getJobById = (id) => JWT_API.get(`/api/jobs/${id}`);
 
-export const deleteJob = (id) => API.delete(`/api/jobs/${id}`);
+export const deleteJob = (id) => JWT_API.delete(`/api/jobs/${id}`);
 
-export const updateJob = (id, jobData) => API.put(`/api/jobs/${id}`, jobData);
+export const updateJob = (id, jobData) => JWT_API.put(`/api/jobs/${id}`, jobData);
 

@@ -23,7 +23,7 @@ function Login() {
         loginUser(form)
             .then((res) => {
                 localStorage.setItem("token", res.data.token); // React stores JWT sent from server
-                navigate("/jobs"); // redirect
+                navigate("/"); // redirect
             })
             .catch(() => alert("Incorrect email or password"));
     };

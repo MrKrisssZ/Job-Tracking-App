@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const API = axios.create({
+const AUTH_API = axios.create({
   baseURL: "http://jobtracking.test", // change to your backend URL
 });
 
-export const registerUser = (data) => API.post("/register", data);
+export const registerUser = (data) => AUTH_API.post("/api/register", data);
 
-export const loginUser = (data) => API.post("/login", data);
+export const loginUser = (data) => AUTH_API.post("/api/login", data);
