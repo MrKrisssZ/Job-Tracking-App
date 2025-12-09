@@ -55,28 +55,34 @@ function Home() {
             </div>
 
             <div className="flex gap-2">
-              <button 
-                onClick={() => handleDelete(job.id)} 
-                className="px-3 py-1 rounded bg-red-500 text-white hover:bg-red-600 transition"
-              >
-                Delete
-              </button>
-              <button 
-                onClick={() => handleUpdate(job.id)}
-                className="px-3 py-1 rounded bg-yellow-400 hover:bg-yellow-500 transition"
-              >
-                Update
-              </button>
+              
               <button 
                 onClick={() => handleViewDetails(job.id)}
                 className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition"
               >
                 View Details
               </button>
+
+              <button 
+                onClick={() => handleUpdate(job.id)}
+                className="px-3 py-1 rounded bg-yellow-400 hover:bg-yellow-500 transition"
+              >
+                Update
+              </button>
+
+              <button 
+                onClick={() => handleDelete(job.id)} 
+                className="px-3 py-1 rounded bg-red-500 text-white hover:bg-red-600 transition"
+              >
+                Delete
+              </button>
+
             </div>
+
           </div>
         ))}
       </div>
+      
     </div>
   );
 }
