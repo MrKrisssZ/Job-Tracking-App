@@ -13,7 +13,9 @@ class JobController extends Controller
     // GET /jobs
     public function index()
     {
-        return Job::orderBy('created_at', 'desc')->get();
+        $user = auth('api')->user();
+        $jobs = $user->jobs()->orderBy('created_at', 'desc')->get();
+        return response()->json($jobs);
     }
 
     // POST /jobs
@@ -29,7 +31,9 @@ class JobController extends Controller
             'notes'        => 'nullable|string',
         ]);
 
-        $job = Job::create($validated);
+
+
+        $job = auth('api')->user()->jobs()->create($validated);
 
         if (!$job)
         {
@@ -37,13 +41,14 @@ class JobController extends Controller
                 'message' => 'Job storing failed'
             ], 404);
         }
+
         return response()->json($job, 201); // Created
     }
 
     // GET /jobs/{id}
     public function show($id)
     {
-        $job = Job::find($id);
+        $job = auth('api')->user()->jobs()->find($id);
 
         if (!$job) {
             return response()->json(['message' => 'Job not found'], 404);
@@ -55,7 +60,8 @@ class JobController extends Controller
     // PUT/PATCH /jobs/{id}
     public function update(Request $request, $id)
     {
-        $job = Job::find($id);
+
+        $job = auth('api')->user()->jobs()->find($id);
 
         if (!$job) {
             return response()->json(['message' => 'Job not found'], 404);
@@ -78,7 +84,7 @@ class JobController extends Controller
     // DELETE /jobs/{id}
     public function destroy($id)
     {
-        $job = Job::find($id);
+        $job = auth('api')->user()->jobs()->find($id);
 
         if (!$job) {
             return response()->json(['message' => 'Job not found'], 404);

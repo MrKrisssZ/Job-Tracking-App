@@ -48,6 +48,11 @@ class User extends Authenticatable implements JWTSubject
         ];
     }
 
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();

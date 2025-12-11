@@ -16,4 +16,10 @@ class Job extends Model
         'last_update',
         'notes',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }
