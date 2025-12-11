@@ -51,6 +51,11 @@ function JobDetails() {
                     </div>
 
                     <div className="flex justify-between">
+                        <span className="font-semibold">Last Update:</span>
+                        <span>{job.last_update}</span>
+                    </div>
+
+                    <div className="flex justify-between">
                         <span className="font-semibold">URL:</span>
                         <a
                             href={job.url}
