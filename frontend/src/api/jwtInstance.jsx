@@ -20,4 +20,21 @@ JWT_API.interceptors.request.use(
     (error) => Promise.reject(error)
 );
 
+// RESPONSE INTERCEPTOR (auto logout if token invalid/expired)
+JWT_API.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response && error.response.status === 401) {
+      // Token invalid or expired → remove it
+      localStorage.removeItem("token");
+
+      // Redirect user to login page
+      window.location.href = "/login";
+    }
+
+    return Promise.reject(error);
+  }
+);
+
+
 export default JWT_API;

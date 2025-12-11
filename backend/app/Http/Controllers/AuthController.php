@@ -42,8 +42,8 @@ class AuthController extends Controller
     }
 
     // // Get current user
-    // public function getCurrentUser()
-    // {
-    //     return response()->json(auth()->user());
-    // }
+    public function getCurrentUser()
+    {
+        return response()->json(auth('api')->user());
+    }
 }
