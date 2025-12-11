@@ -9,6 +9,7 @@ function Signup() {
         name: "",
         email: "",
         password: "",
+        password_confirmation: ""
     });
 
     const handleChange = (e) => {
@@ -18,12 +19,22 @@ function Signup() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if (form.password !== form.password_confirmation) {
+            alert("Passwords do not match!");
+            return;
+        }
         registerUser(form)
             .then((res) => {
                 localStorage.setItem("token", res.data.token);
                 navigate("/"); // redirect to job list
             })
-            .catch((err) => alert("Signup failed"));
+            .catch((err) => {
+                if (err.response?.data?.errors?.email) {
+                    alert("This email is already registered.");
+                } else {
+                    alert("Registration failed.");
+                }
+            });
     };
 
     return (
@@ -77,6 +88,21 @@ function Signup() {
                             name="password"
                             placeholder="Password (min 6 characters)"
                             value={form.password}
+                            onChange={handleChange}
+                            required
+                            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block text-gray-700 font-medium mb-1">
+                            Confirm Password
+                        </label>
+                        <input
+                            type="password"
+                            name="password_confirmation"
+                            placeholder="Confirm Password"
+                            value={form.password_confirmation}
                             onChange={handleChange}
                             required
                             className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"
