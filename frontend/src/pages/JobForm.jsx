@@ -1,7 +1,6 @@
 import { useState, useEffect} from "react";
-import { createJob, getJobById, updateJob } from "../api/jobApi";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { createJob, getJobById, updateJob } from "../api/jobService";
+import { useParams, useNavigate } from "react-router-dom";
 
 function JobForm() {
     const { id } = useParams();
