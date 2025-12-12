@@ -11,11 +11,16 @@ class JobController extends Controller
      * Display a listing of the resource.
      */
     // GET /jobs
-    public function index()
+    public function index(Request $request)
     {
         $user = auth('api')->user();
-        $jobs = $user->jobs()->orderBy('created_at', 'desc')->get();
-        return response()->json($jobs);
+        $query = $user->jobs()->orderBy('created_at', 'desc');
+
+        // If ?status= is provided, apply filtering
+        if ($request->has('status') && $request->status !== '') {
+            $query->where('status', $request->status);
+        }
+        return response()->json($query->get());
     }
 
     // POST /jobs

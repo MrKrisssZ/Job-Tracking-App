@@ -6,13 +6,14 @@ import { deleteAccount } from "../api/jobApi";
 
 function Home() {
   const [jobs, setJobs] = useState([]); // when state changed, react re-renders the whole component.
+  const [status, setStatus] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    getJobs()
+    getJobs(status)
       .then(res => setJobs(res.data)) // inside .then(), res object is from Axios
       .catch(err => console.error(err));
-  }, []);
+  }, [status]);
 
   const handleDelete = async (id) => {
     try {
@@ -83,6 +84,22 @@ function Home() {
         >
           Delete Account
         </button>
+      </div>
+
+      {/* Filter Dropdown */}
+      <div className="flex justify-end mt-4">
+        <select
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+          className="border px-3 py-2 rounded-lg shadow-sm"
+        >
+          <option value="">All Statuses</option>
+          <option value="not applied">Not Applied</option>
+          <option value="applied">Applied</option>
+          <option value="interview">Interview</option>
+          <option value="offer">Offer</option>
+          <option value="rejected">Rejected</option>
+        </select>
       </div>
 
       {jobs.length === 0 && <p className="text-gray-500 text-center mt-10">No jobs found.</p>}

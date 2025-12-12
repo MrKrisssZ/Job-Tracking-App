@@ -3,8 +3,13 @@ import JWT_API from "./jwtInstance";
 // Example: POST a new job
 export const createJob = (jobData) => JWT_API.post("/api/jobs", jobData);
 
-// Example: GET all jobs
-export const getJobs = () => JWT_API.get("/api/jobs");
+export const getJobs = (status) => {
+    let url = "/api/jobs";
+    if (status) {
+        url += `?status=${status}`;
+    } 
+    return JWT_API.get(url);
+};
 
 export const getJobById = (id) => JWT_API.get(`/api/jobs/${id}`);
 
