@@ -12,3 +12,4 @@ export const deleteJob = (id) => JWT_API.delete(`/api/jobs/${id}`);
 
 export const updateJob = (id, jobData) => JWT_API.put(`/api/jobs/${id}`, jobData);
 
+export const deleteAccount = () => JWT_API.delete("/api/user/delete");

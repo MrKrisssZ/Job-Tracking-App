@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getJobs, deleteJob } from "../api/jobApi";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { deleteAccount } from "../api/jobApi";
 
 function Home() {
   const [jobs, setJobs] = useState([]); // when state changed, react re-renders the whole component.
@@ -35,9 +36,30 @@ function Home() {
     localStorage.removeItem("token"); // remove JWT
     navigate("/login");               // redirect to login page
   }
+
+  const handleDeleteAccount = async () => {
+    if (!window.confirm("Are you sure you want to delete your account? This cannot be undone.")) {
+      return;
+    }
+
+    try {
+      await deleteAccount();
+
+      // remove the token
+      localStorage.removeItem("token");
+
+      alert("Your account has been deleted.");
+      navigate("/login");
+    } catch (err) {
+      console.error(err);
+      alert("Failed to delete account");
+    }
+  };
+
   
   return (
     <div className="max-w-4xl mx-auto py-10 px-4">
+
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">All Jobs</h1>
 
@@ -53,6 +75,13 @@ function Home() {
           className="bg-gray-600 text-white px-4 py-2 rounded-lg shadow hover:bg-gray-700 transition"
         >
           Logout
+        </button>
+
+        <button
+          className="text-red-600 hover:text-red-800"
+          onClick={handleDeleteAccount}
+        >
+          Delete Account
         </button>
       </div>
 

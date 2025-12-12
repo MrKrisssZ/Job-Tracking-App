@@ -41,6 +41,19 @@ class AuthController extends Controller
         return response()->json(['token' => $token]);
     }
 
+    public function deleteAccount()
+    {
+        $user = auth('api')->user();
+
+        // Delete user → related jobs will also be deleted (because of cascade)
+        $user->delete();
+
+        // Invalidate JWT token
+        auth('api')->logout();
+
+        return response()->json(['message' => 'Account deleted successfully']);
+    }
+
     // // Get current user
     public function getCurrentUser()
     {

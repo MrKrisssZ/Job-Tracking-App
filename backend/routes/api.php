@@ -12,5 +12,6 @@ Route::post('/login',    [AuthController::class, 'login']);
 // the middleware is the ware before reaching to the contoller. The middleware here is for checking if there is token or the token valid.
 Route::middleware('auth:api')->group(function () {
     Route::get('/me',  [AuthController::class, 'getCurrentUser']);
+    Route::delete('/user/delete', [AuthController::class, 'deleteAccount']);
     Route::apiResource('jobs', JobController::class);
 });
