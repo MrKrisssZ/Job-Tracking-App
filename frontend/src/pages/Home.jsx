@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { getJobs, deleteJob, deleteAccount } from "../api/jobService";
+import { getJobs, deleteJob } from "../api/jobService";
 import { Link, useNavigate  } from "react-router-dom";
+import { deleteAccount } from "../api/userService";
 
 function Home() {
   const [jobs, setJobs] = useState([]); // when state changed, react re-renders the whole component.
