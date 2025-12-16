@@ -4,6 +4,7 @@ An application for tracking the status of job hunting for fresh university gradu
 ## Prerequisites
 
 - Node.js (20.19+ or higher) - [Download here](https://nodejs.org/)
+  
 
 ## Installation
 
@@ -16,6 +17,9 @@ git clone git@github.com:MrKrisssZ/Job-Tracking-App.git
 cd backend
 composer install
 ```
+TODO: Herd install???
+TODO: .env file? copy and paste composer, npm, node.js, php, database client tool.
+Problem: successfully set up the MySQL server and database on AWS, but user can not sign up in the application
 
 2. Install frontend dependencies:
 ```bash
