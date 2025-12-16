@@ -3,7 +3,7 @@ An application for tracking the status of job hunting for fresh university gradu
 
 ## Prerequisites
 
-- Node.js (v18 or higher) - [Download here](https://nodejs.org/)
+- Node.js (20.19+ or higher) - [Download here](https://nodejs.org/)
 
 ## Installation
 
