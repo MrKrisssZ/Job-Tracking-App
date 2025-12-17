@@ -5,7 +5,7 @@ An application for tracking the status of job hunting for fresh university gradu
 
 - Node.js (20.19+ or higher) - [Download here](https://nodejs.org/)
 - Make sure that your local machine has PHP, Composer, and the Laravel installer installed - [Download here](https://laravel.com/docs/12.x/installation)
-- Or install Laravel Herd, which bundles everything you need - [Download here](https://herd.laravel.com/)
+- (Most Recommended) Install Laravel Herd, which bundles everything you need - [Download here](https://herd.laravel.com/)
   
 ## Installation
 
