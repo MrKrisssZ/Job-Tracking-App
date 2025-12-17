@@ -17,6 +17,9 @@ git clone git@github.com:MrKrisssZ/Job-Tracking-App.git
 cd backend
 composer install
 ```
+```Generate JWT secret key
+php artisan jwt:secret
+```
 TODO: Herd install???
 TODO: .env file? copy and paste composer, npm, node.js, php, database client tool.
 Problem: successfully set up the MySQL server and database on AWS, but user can not sign up in the application
