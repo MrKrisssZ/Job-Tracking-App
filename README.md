@@ -3,13 +3,26 @@ An application for tracking the status of job hunting for fresh university gradu
 
 ## Prerequisites
 
-- Node.js (v18 or higher) - [Download here](https://nodejs.org/)
+- Node.js (20.19+ or higher) - [Download here](https://nodejs.org/)
+  
 
 ## Installation
 
 1. Clone the repository:
 git clone git@github.com:MrKrisssZ/Job-Tracking-App.git
 (Note: Requires SSH keys set up with GitHub. See [GitHub's SSH guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).)
+
+3. Install backend dependencies:
+```bash
+cd backend
+composer install
+```
+```Generate JWT secret key
+php artisan jwt:secret
+```
+TODO: Herd install???
+TODO: .env file? copy and paste composer, npm, node.js, php, database client tool.
+Problem: successfully set up the MySQL server and database on AWS, but user can not sign up in the application
 
 2. Install frontend dependencies:
 ```bash
