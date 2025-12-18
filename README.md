@@ -1,11 +1,11 @@
-# Job-Tracking-App3
+# Job-Tracking-App
 An application for tracking the status of job hunting for fresh university graduates.
 
 ## Prerequisites
 
-- Node.js (20.19+ or higher) - [Download here](https://nodejs.org/)
-- Make sure that your local machine has PHP, Composer, and the Laravel installer installed - [Download here](https://laravel.com/docs/12.x/installation)
-- (Most Recommended) Install Laravel Herd, which bundles everything you need - [Download here](https://herd.laravel.com/)
+- Node.js (20.19+ or higher)
+- Make sure that your local machine has PHP, Composer, and the Laravel installer installed
+- (Most Recommended) For this application, please install Laravel Herd, which bundles everything you need - [Download here](https://herd.laravel.com/)
   
 ## Installation
 
