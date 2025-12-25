@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const JWT_API = axios.create({
-  baseURL: "http://jobtracking.test", // include /api here
+  baseURL: "http://3.107.86.158", // include /api here
 });
 
 // Automatically attach JWT token to every request
